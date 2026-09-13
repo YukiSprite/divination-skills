@@ -1,0 +1,4 @@
+interface:
+  display_name: "奇门遁甲"
+  short_description: "转盘奇门排盘与有出处的用神解读，支持感情、工作等具体占问"
+  default_prompt: "请使用 $qimen，按我的问题和起局时间排盘，说明主要用神、盘面依据和判断倾向。"
