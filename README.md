@@ -4,12 +4,14 @@
 
 | Skill | 当前范围 | 入口 |
 |---|---|---|
+| 六爻 `liuyao` | 增删卜易入门体系；投币纳甲排盘、日月动变与用神分析 | [SKILL.md](skills/liuyao/SKILL.md) · [使用说明](skills/liuyao/README.md) |
 | 奇门 `qimen` | 转盘时家奇门；拆补排盘、已有盘解读、用神与类象、感情案例 | [SKILL.md](skills/qimen/SKILL.md) |
 
-当前先完成奇门。六爻是本次结构参考；八字、塔罗等以后可在 `skills/` 下并列增加独立目录，尚未实现的技能不放占位入口。
+目前包含六爻与奇门，均可独立安装。八字、塔罗等以后可在 `skills/` 下并列增加独立目录，尚未实现的技能不放占位入口。六爻迁移来源与旧安装更新说明见 [迁移记录](docs/migration.md)。
 
 ```text
 skills/
+  liuyao/             # 六爻：入口、规则、排盘脚本、离线依赖与许可证
   qimen/
     SKILL.md
     agents/openai.yaml
@@ -17,10 +19,23 @@ skills/
     scripts/           # 排盘与检查
     vendor/            # 离线历法依赖及其许可证
     requirements.txt
+docs/liuyao/结构化参考资料/ # 六爻教程整理、校对与待核记录
 本地参考文件/          # 作者本地资料，已被 Git 忽略
 ```
 
-## 使用
+## 六爻使用
+
+按需安装完整的 `skills/liuyao` 目录，使用 `$liuyao` 调用。已有旧版时更新同名安装，不重复安装。输入、示例与离线排盘命令见 [六爻使用说明](skills/liuyao/README.md)。
+
+六爻检查（在仓库根目录，Python 3.9+）：
+
+```sh
+python3 -B skills/liuyao/scripts/checks.py
+```
+
+六爻原创代码与文档沿用 [MIT 许可证](skills/liuyao/LICENSE)，第三方内容保留各自权利及来源说明。
+
+## 奇门使用
 
 将完整的 `skills/qimen` 目录复制或链接到所用客户端的 skills 目录，保留 `references`、`scripts` 与 `vendor`。本仓库中的创建不自动修改全局安装。
 
