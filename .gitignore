@@ -8,3 +8,6 @@
 # Python 运行缓存
 __pycache__/
 *.py[cod]
+
+# 六爻文档示例的本地输出
+/output/

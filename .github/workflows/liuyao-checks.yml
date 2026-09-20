@@ -1,0 +1,37 @@
+name: Liuyao checks
+
+on:
+  pull_request:
+    paths:
+      - 'skills/liuyao/**'
+      - '.github/workflows/liuyao-checks.yml'
+  push:
+    branches: [main]
+    paths:
+      - 'skills/liuyao/**'
+      - '.github/workflows/liuyao-checks.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  liuyao:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python-version: ['3.9', '3.13']
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+      - name: Check Liuyao
+        run: python -B skills/liuyao/scripts/checks.py
+      - name: Check standalone installation outside the repository
+        shell: bash
+        run: |
+          standalone_dir="$(mktemp -d)"
+          cp -R skills/liuyao "$standalone_dir/liuyao"
+          cd "$standalone_dir"
+          python -B liuyao/scripts/checks.py
