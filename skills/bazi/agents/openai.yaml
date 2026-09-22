@@ -1,0 +1,4 @@
+interface:
+  display_name: "八字命理"
+  short_description: "子平八字离线排盘，结合旺衰、十神与取用解释事业财运和大运流年趋势"
+  default_prompt: "请使用 $bazi，根据我的出生资料或已有四柱排盘，先给趋势判断，再解释旺衰、取用与相关大运流年。"
