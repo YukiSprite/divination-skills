@@ -4,14 +4,41 @@
 
 | Skill | 当前范围 | 入口 |
 |---|---|---|
-| 六爻 `liuyao` | 增删卜易入门体系；投币纳甲排盘、日月动变与用神分析 | [SKILL.md](skills/liuyao/SKILL.md) · [使用说明](skills/liuyao/README.md) |
 | 奇门 `qimen` | 转盘时家奇门；拆补排盘、已有盘解读、用神与类象、感情案例 | [SKILL.md](skills/qimen/SKILL.md) |
+| 六爻 `liuyao` | 增删卜易入门体系；六次投币纳甲排盘、取用、生克动变、旬空与生旺墓绝 | [SKILL.md](skills/liuyao/SKILL.md) · [使用说明](skills/liuyao/README.md) |
 
-目前包含六爻与奇门，均可独立安装。八字、塔罗等以后可在 `skills/` 下并列增加独立目录，尚未实现的技能不放占位入口。六爻迁移来源与旧安装更新说明见 [迁移记录](docs/migration.md)。
+两份 skill 都要求先给出明确的倾向性判断，再解释盘面依据；生克交织时说明判断主次，禁止用防御性套话代替结论。
+
+八字、塔罗等以后可在 `skills/` 下并列增加独立目录。六爻迁移来源与旧安装更新说明见[迁移记录](docs/migration.md)。
+
+## 知识来源
+
+### 奇门
+
+主要资料整理自**云野卦馆的[哔哩哔哩奇门系列视频（BV1La4y1y7Qg）](https://www.bilibili.com/video/BV1La4y1y7Qg)**，依据本地保存的 10 篇课程转录提炼。讲师以《神奇之门》为讲解脉络，本 skill 直接采用的是课程资料。
+
+- **基础与排盘：** 六十甲子、旬空、五行、后天九宫，以及地盘、天盘、九星、八门、八神、时空时马；梳理拆补、置闰、茅山的差异，自动排盘采用拆补转盘。
+- **解读方法：** 八宫、天干、星门神类象，主客与十二长生，部分十干克应、击刑入墓、伏吟反吟，日时取用、宫内组合与宫间关系，以及感情课例。
+- **古籍补充：** 对照[《奇门旨归》卷一起例歌](https://www.shidianguji.com/mid-page/7531869976861933618)核对二十四节气的三元定局表，包括小寒 285、大寒与春分 396。
+
+逐课出处、转录校订和实现约定见[奇门来源说明](skills/qimen/references/sources.md)。
+
+### 六爻
+
+主要资料整理自**云野卦馆的[哔哩哔哩六爻系列视频（BV12bzpBuEuG）](https://www.bilibili.com/video/BV12bzpBuEuG/)**，采用《增删卜易》入门体系，依据本地保存的基础篇、排盘篇、用神篇和第 8 集共四份教程转录提炼。
+
+- **基础与排盘：** 五行、干支、六亲、投币计数与爻序，纳甲、八宫、世应、六神、伏神，以及动爻变化和变爻六亲的归属。
+- **解读方法：** 用神、元神、忌神、仇神的取用与作用方向，日月旺衰、动变、生扶克制，旬空、生旺墓绝，以及游魂归魂的辅助判断。
+- **古籍补充：** 对照[《增删卜易》公开整理本](https://zh.wikisource.org/zh-hans/增刪卜易)中的《浑天甲子章》《八宫图》《用神章》《元神忌神衰旺章》《暗动章》《旬空章》《生旺墓绝章》《各门类题头总注》《归魂游魂章》及整理者增订的纳甲表，补齐固定表和条件规则；用[《周易·颐》](https://ctext.org/book-of-changes/yi4/zh)校正卦名录入错误。
+
+逐篇出处、纳甲表和转录校订见[六爻来源说明](skills/liuyao/references/sources.md)；课程整理见[结构化参考资料目录](docs/liuyao/结构化参考资料/00-资料目录与整理说明.md)。
+
+两份 skill 均随附 [lunar-python 1.4.8](https://github.com/6tail/lunar-python) 用于历法与干支计算；术数排盘和解读规则分别维护。原始视频转录保留在本地，发布内容为提炼后的规则、程序与出处记录。
+
+## 目录
 
 ```text
 skills/
-  liuyao/             # 六爻：入口、规则、排盘脚本、离线依赖与许可证
   qimen/
     SKILL.md
     agents/openai.yaml
@@ -19,34 +46,33 @@ skills/
     scripts/           # 排盘与检查
     vendor/            # 离线历法依赖及其许可证
     requirements.txt
+  liuyao/
+    SKILL.md
+    agents/openai.yaml
+    references/        # 输入、取用、生克及专项规则与出处
+    scripts/           # 纳甲排盘、固定表与检查
+    vendor/            # 离线历法依赖及其许可证
+    requirements.txt
 docs/liuyao/结构化参考资料/ # 六爻教程整理、校对与待核记录
 本地参考文件/          # 作者本地资料，已被 Git 忽略
 ```
 
-## 六爻使用
+## 使用
 
-按需安装完整的 `skills/liuyao` 目录，使用 `$liuyao` 调用。已有旧版时更新同名安装，不重复安装。输入、示例与离线排盘命令见 [六爻使用说明](skills/liuyao/README.md)。
+将所需的完整目录 `skills/qimen` 或 `skills/liuyao` 复制或链接到所用客户端的 skills 目录，保留 `references`、`scripts` 与 `vendor`。两份 skill 可分别安装，也可同时安装；已有旧版六爻时更新同名安装。
 
-六爻检查（在仓库根目录，Python 3.9+）：
+- **奇门：** “用奇门，按 2026 年 9 月 13 日上午 10:30 北京时间起局，看看我本月底能否拿到录用通知。”已有盘也可直接提供并说明原排法。
+- **六爻：** “用六爻，问本月底能否拿到录用通知。六次投币按先后顺序，每次背面数是 1、1、0、2、1、3，起卦时间为 2026 年 9 月 13 日上午 10:30，北京时间。”使用时换成自己的真实投币结果、问题和起卦时间。
 
-```sh
-python3 -B skills/liuyao/scripts/checks.py
-```
-
-六爻原创代码与文档沿用 [MIT 许可证](skills/liuyao/LICENSE)，第三方内容保留各自权利及来源说明。
-
-## 奇门使用
-
-将完整的 `skills/qimen` 目录复制或链接到所用客户端的 skills 目录，保留 `references`、`scripts` 与 `vendor`。本仓库中的创建不自动修改全局安装。
-
-可直接提问：“用奇门，按 2026 年 9 月 13 日上午 10:30 北京时间起局，看看我本月底能否拿到录用通知。”已有盘也可直接提供并说明原排法。
-
-默认：拆补、转盘、五寄坤二、天禽随芮、天盘八神、Asia/Shanghai 民用时间、零点换日。自动程序没有实现置闰、茅山、飞盘或真太阳时。已有盘沿用原排法，不静默改盘。
+奇门默认拆补、转盘、五寄坤二、天禽随芮、天盘八神；六爻第一次投掷对应最下方初爻，背面数 0／1／2／3 对应老阴／少阳／少阴／老阳。两者默认 Asia/Shanghai 民用时间、零点换日。详细格式见[奇门输入约定](skills/qimen/references/input.md)和[六爻输入约定](skills/liuyao/references/input.md)。
 
 开发检查（Python 3.9+）：
 
 ```sh
 python3 -B skills/qimen/scripts/checks.py
+python3 -B skills/liuyao/scripts/checks.py
 ```
 
-输入格式见 [输入约定](skills/qimen/references/input.md)，资料覆盖、校订与验证边界见 [来源说明](skills/qimen/references/sources.md)。原始视频转录不随 skill 复制；提炼规则可独立使用。历法依赖 `lunar_python 1.4.8` 随附 MIT 许可证，其他整理文本不代原视频或书籍授予授权。
+## 许可证
+
+本仓库原创代码与文档采用 [MIT License](LICENSE)，版权归 YukiSprite 所有。第三方依赖保留各自的版权声明与许可证；原视频、书籍及其他来源材料的权利归原权利人所有。
