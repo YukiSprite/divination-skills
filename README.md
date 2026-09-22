@@ -8,9 +8,7 @@
 | 八字 `bazi` | 子平八字；四柱十神、旺衰与取用、格局候选、大运流年趋势 | [SKILL.md](skills/bazi/SKILL.md) |
 | 六爻 `liuyao` | 增删卜易入门体系；六次投币纳甲排盘、取用、生克动变、旬空与生旺墓绝 | [SKILL.md](skills/liuyao/SKILL.md) · [使用说明](skills/liuyao/README.md) |
 
-三份 skill 都要求先给出明确的倾向性判断，再解释盘面依据；生克交织时说明判断主次，禁止用防御性套话代替结论。
-
-塔罗等以后可在 `skills/` 下并列增加独立目录。六爻迁移来源与旧安装更新说明见[迁移记录](docs/migration.md)。
+六爻迁移来源与旧安装更新说明见[迁移记录](docs/migration.md)。
 
 ## 知识来源
 
